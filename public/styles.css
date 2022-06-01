@@ -1,0 +1,168 @@
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: 125%;
+  line-height: 1.4;
+  font-family: Helvetica;
+}
+
+body {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto 2fr;
+  grid-template-areas:
+    "header header header"
+    "add-quotes update-quote delete-quote"
+    "quotes quotes quotes";
+  gap: 1rem;
+  margin: 0;
+  padding: 1rem;
+  background-color: rgb(255, 165, 0);
+  background-image: url("images/yoda-vs-darth-vader.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+[data-position="header"] {
+  grid-area: header;
+}
+
+[data-position="add-quotes"] {
+  grid-area: add-quotes;
+}
+
+[data-position="update-quotes"] {
+  grid-area: update-quotes;
+}
+
+[data-position="delete-quotes"] {
+  grid-area: delete-quotes;
+}
+
+[data-position="quotes"] {
+  grid-area: quotes;
+  /* overflow: scroll; */
+}
+
+[data-position] {
+  background: rgba(255, 165, 0, 0.5);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+h1,
+h2 {
+  margin: 0;    
+}
+
+.btn {
+    display: block;
+    box-sizing: border-box;
+    padding: 20px 60px;
+  
+    position: relative;
+    overflow: hidden;
+  
+    font-weight: 900;
+    text-transform: uppercase;
+  
+    transition: 0.2s linear 0.1s;
+    outline: 4px solid white;
+    outline-offset: -4px;
+  }
+  .vader:hover {
+    color: rgb(5, 5, 5);
+    outline-color: transparent;
+    background: #f00;
+    box-shadow: 0 0 5px #f00, 0 0 25px #f00, 0 0 50px #f00,
+      0 0 100px #f00;
+  
+    transition: 0.2s linear 0.6s;
+  }
+  .yoda:hover {
+    color: rgb(5, 5, 5);
+    outline-color: transparent;
+    background: #0f0;
+    box-shadow: 0 0 5px #0f0, 0 0 25px #0f0, 0 0 50px #0f0,
+      0 0 100px #0f0;
+  
+    transition: 0.2s linear 0.6s;
+  }
+  .btn span {
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+  .vader .top {
+    opacity: 0;
+    border-top: 4px solid #f00;
+    transform: translateX(calc(-100% + var(--progress, 0%)));
+    transition: none;
+  }
+  .yoda .top {
+    opacity: 0;
+    border-top: 4px solid #0f0;
+    transform: translateX(calc(-100% + var(--progress, 0%)));
+    transition: none;
+  }
+  .btn:hover .top {
+    opacity: 1;
+    --progress: 100%;
+    transition: transform 0.2s linear;
+  }
+  .vader .right {
+    opacity: 0;
+    border-right: 4px solid #f00;
+    transform: translateY(calc(-100% + var(--progress, 0%)));
+    transition: none;
+  }
+  .yoda .right {
+    opacity: 0;
+    border-right: 4px solid #0f0;
+    transform: translateY(calc(-100% + var(--progress, 0%)));
+    transition: none;
+  }
+  .btn:hover .right {
+    opacity: 1;
+    --progress: 100%;
+    transition: transform 0.2s linear 0.2s;
+  }
+  .vader .bottom {
+    opacity: 0;
+    border-bottom: 4px #f00;
+    transform: translateX(calc(100% - var(--progress, 0%)));
+    transition: none;
+  }
+  .yoda .bottom {
+    opacity: 0;
+    border-bottom: 4px #0f0;
+    transform: translateX(calc(100% - var(--progress, 0%)));
+    transition: none;
+  }
+  .btn:hover .bottom {
+    opacity: 1;
+    --progress: 100%;
+    transition: transform 0.2s linear 0.4s;
+  }
+  .vader .left {
+    opacity: 0;
+    border-left: 4px solid #f00;
+    transform: translateY(calc(100% - var(--progress, 0%)));
+    transition: none;
+  }
+  .yoda .left {
+    opacity: 0;
+    border-left: 4px solid #0f0;
+    transform: translateY(calc(100% - var(--progress, 0%)));
+    transition: none;
+  }
+  .btn:hover .left {
+    opacity: 1;
+    --progress: 100%;
+    transition: transform 0.2s linear 0.6s;
+  }
